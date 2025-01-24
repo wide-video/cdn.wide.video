@@ -185,3 +185,9 @@ REM downloaded via cobalt.tools https://www.youtube.com/watch?v=UMUCtNtKlJ0 to h
 REM crbug_333325020.h264 is first 3000 bytes of h264 VideoEncoder chunk generated in studio using heavy noise filter ( related to https://localhost/wide.video/app-poc/html-VideoEncoder/crbug-VideoFrame-bitrate.html )
 
 curl https://www.elecard.com/storage/video/NovosobornayaSquare_1920x1080.mp4 --output nss_h266_1920x1080_60fps_10s_4MB.mp4
+
+REM counter_h265_648x648_30fps_aac_mono_86s_2MB.mp4 downloaded from https://github.com/stashapp/stash/issues/4124#issuecomment-1720057183
+
+REM fasterwhisper_mp3_stereo_55s_0MB.mp3 download from https://github.com/SYSTRAN/faster-whisper/issues/81#issuecomment-1484051516 reported https://trac.ffmpeg.org/ticket/11429
+
+REM pixelkid1_mjpeg_1920x1080_30fps_pcm_mono_10s_9MB.avi created using LAMAX PixelKid1
