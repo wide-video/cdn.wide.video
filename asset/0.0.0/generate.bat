@@ -60,6 +60,17 @@ ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "
 
 ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "scale=1280x720" -vframes 1 -y bbb_jpeg_1280x720_0MB.jpeg
 
+ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -filter_complex \
+	"[0:v]fps=30,scale=1280x720[v0];[0:v]fps=20,scale=640x360[v1];[0:v]fps=10,scale=320x180[v2];[0:a]pan=mono[a1];[0:a]pan=5.1|c0=c0|c1=c1|c2=c2|c3=c3|c4=c4|c5=c5[a2]" \
+	-t 30 \
+	-map 0:a:0 -c:a:0 ac3 \
+	-map "[a1]" -c:a:1 eac3 \
+	-map "[a2]" -c:a:2 aac \
+	-map "[v0]" -c:v:0 libx264 -pix_fmt:v:0 yuv420p -crf:v:0 23 -profile:v:0 high -preset:v:0 veryslow \
+	-map "[v1]" -c:v:1 libx265 -tag:v:1 hvc1 -crf:v:1 26 -preset:v:1 slow -bf 0 \
+	-map "[v2]" -c:v:2 libaom-av1 -cpu-used 8 \
+	-f mp4 -movflags +faststart -y bbb_ac3_stereo_eac3_mono_aac_51_h264_1280x720_30fps_h265_640x360_20fps_av1_320x180_10fps_30s_8MB.mp4
+
 curl http://ftp.nluug.nl/pub/graphics/blender/demo/movies/Sintel.2010.1080p.mkv --output sintel_h264_1920x818_24fps_ac3_51_888s_1172MB.mkv
 
 ffmpeg -ss 120 -i sintel_h264_1920x818_24fps_ac3_51_888s_1172MB.mkv -c:v libx264 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v veryslow -c:a aac -ac 2 -f mp4 -movflags +faststart -t 30 -y sintel_h264_1920x818_24fps_aac_stereo_30s_6MB.mp4
