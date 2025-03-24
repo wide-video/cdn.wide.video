@@ -71,6 +71,8 @@ ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -filt
 	-map "[v2]" -c:v:2 libaom-av1 -cpu-used 8 \
 	-f mp4 -movflags +faststart -y bbb_ac3_stereo_eac3_mono_aac_51_h264_1280x720_30fps_h265_640x360_20fps_av1_320x180_10fps_30s_8MB.mp4
 
+ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "fps=30,scale=240x135,setparams=color_trc=linear" -t 5 -c:v prores -pix_fmt:v yuv422p10le -an -y bbb_prores_240x135_30fps_5s_2MB.mov
+
 curl http://ftp.nluug.nl/pub/graphics/blender/demo/movies/Sintel.2010.1080p.mkv --output sintel_h264_1920x818_24fps_ac3_51_888s_1172MB.mkv
 
 ffmpeg -ss 120 -i sintel_h264_1920x818_24fps_ac3_51_888s_1172MB.mkv -c:v libx264 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v veryslow -c:a aac -ac 2 -f mp4 -movflags +faststart -t 30 -y sintel_h264_1920x818_24fps_aac_stereo_30s_6MB.mp4
