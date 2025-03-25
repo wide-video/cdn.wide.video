@@ -5,7 +5,7 @@ const root = __dirname;
 // some old versions can be removed
 // some files are > 25MB https://developers.cloudflare.com/pages/platform/limits/#file-size
 const removePaths = [
-	/\/ffmpeg\/0\.[0-7]/,
+	/\/ffmpeg\/0\.[0-7]\./,
 	/\/piper\/0\.0\.0\//,
 	/\/rive\/2\.7/
 ]
