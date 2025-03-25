@@ -1,0 +1,44 @@
+Header set Access-Control-Allow-Headers *
+Header set Access-Control-Allow-Origin *
+Header set Access-Control-Expose-Headers *
+Header set Cache-Control "public, max-age=604800, s-maxage=604800, immutable"
+Header set Cross-Origin-Opener-Policy same-origin
+Header set Cross-Origin-Embedder-Policy require-corp
+
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=307,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{HTTP:Accept-encoding} br
+RewriteCond %{REQUEST_FILENAME}\.br -s
+RewriteRule ^(.*) $1\.br [QSA]
+
+RewriteRule \.js\.br$ - [T=text/javascript,E=no-gzip,E=no-brotli]
+RewriteRule \.wasm\.br$ - [T=application/wasm,E=no-gzip,E=no-brotli]
+
+<FilesMatch "(\.br)$">
+	Header set Content-Encoding br
+	Header append Vary Accept-Encoding
+</FilesMatch>
+#Generated extra
+<FilesMatch "(ffmpeg-gpl-wv.js\.br)$">
+	Header set x-content-length 124900
+</FilesMatch>
+<FilesMatch "(ffmpeg-gpl.js\.br)$">
+	Header set x-content-length 124615
+</FilesMatch>
+<FilesMatch "(ffmpeg-lgpl-wv.js\.br)$">
+	Header set x-content-length 124901
+</FilesMatch>
+<FilesMatch "(ffmpeg-lgpl.js\.br)$">
+	Header set x-content-length 124616
+</FilesMatch>
+<FilesMatch "(ffmpeg-gpl.wasm\.br)$">
+	Header set x-content-length 39868543
+</FilesMatch>
+<FilesMatch "(ffmpeg-lgpl.wasm\.br)$">
+	Header set x-content-length 33749022
+</FilesMatch>

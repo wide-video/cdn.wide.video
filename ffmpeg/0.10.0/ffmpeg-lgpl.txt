@@ -1,0 +1,88 @@
+emcc -O3 -flto -I/ffmpeg-wasm/build/include -pthread -msimd128 -mavx2 -L/ffmpeg-wasm/build/lib -I. -I./fftools -I./compat/stdbit -I/ffmpeg-wasm/build/include -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibswscale -Llibswresample -Wno-deprecated-declarations -Wno-pointer-sign -Wno-implicit-int-float-conversion -Wno-switch -Wno-parentheses -Qunused-arguments -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -laom -lSvtAv1Enc -LSvtAv1Enc -Llibstvav1 -lopenh264 -lkvazaar -lvpx -lmp3lame -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -lopus -lwebp -lwebpmux -lsharpyuv -lrubberband -lsamplerate -Lrubberband -Lsamplerate fftools/cmdutils.c fftools/ffmpeg.c fftools/ffmpeg_dec.c fftools/ffmpeg_demux.c fftools/ffmpeg_enc.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/ffmpeg_mux.c fftools/ffmpeg_mux_init.c fftools/ffmpeg_opt.c fftools/ffmpeg_sched.c fftools/opt_common.c fftools/sync_queue.c fftools/thread_queue.c -lworkerfs.js -s USE_SDL=2 -s WASM_BIGINT -s MALLOC=mimalloc -s INVOKE_RUN=0 -s EXIT_RUNTIME=1 -s MODULARIZE=1 -s EXPORT_NAME=createFFmpeg -s EXPORTED_FUNCTIONS=[_main, ___wasm_init_memory_flag] -s EXPORTED_RUNTIME_METHODS=[callMain, FS, WORKERFS] -s INITIAL_MEMORY=96mb -s ALLOW_MEMORY_GROWTH=1 -s MAXIMUM_MEMORY=4gb -s ENVIRONMENT=worker -s PROXY_TO_PTHREAD=1 -s STACK_SIZE=5MB -s DEFAULT_PTHREAD_STACK_SIZE=2MB -o /ffmpeg-wasm/wasm/ffmpeg-lgpl.js
+
+git@github.com:wide-video/ffmpeg-wasm.git
+04729e9c53209975471126baaebd18d9d804bc7c
+
+EMCC (emcc -v)
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 4.0.5 (53b38d0c6f9fce1b62c55a8012bc6477f7a42711)
+clang version 21.0.0git (https:/github.com/llvm/llvm-project 553da9634dc4bae215e6c850d2de3186d09f9da5)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /ffmpeg-wasm/modules/emsdk/upstream/bin
+
+Entering 'modules/Ogg'
+https://github.com/wide-video/Ogg
+e1774cd77f471443541596e09078e78fdc342e4f
+
+Entering 'modules/aom'
+https://github.com/wide-video/aom
+3b624af45b86646a20b11a9ff803aeae588cdee6
+
+Entering 'modules/emsdk'
+https://github.com/emscripten-core/emsdk
+b665079cb9ad9eb1704652f962281a7fa1633e2d
+
+Entering 'modules/ffmpeg'
+https://github.com/wide-video/ffmpeg
+9f0970ee35a50f80cd22ea3e23bd7d51f404fac9
+
+Entering 'modules/kvazaar'
+https://github.com/wide-video/kvazaar
+f49af6386c9c7cddaa9d00e85cfe30cfe1d6a60f
+
+Entering 'modules/lame'
+https://github.com/wide-video/lame
+2badea1974ae36cb8312afe99cff1e6b3b5decee
+
+Entering 'modules/libsamplerate'
+https://github.com/wide-video/libsamplerate
+c96f5e3de9c4488f4e6c97f59f5245f22fda22f7
+
+Entering 'modules/libsndfile'
+https://github.com/wide-video/libsndfile
+72f6af15e8f85157bd622ed45b979025828b7001
+
+Entering 'modules/libvpx'
+https://github.com/wide-video/libvpx
+9f9b7e9ba2eb9d01640a9e69a3d655866265cf7f
+
+Entering 'modules/libwebp'
+https://github.com/wide-video/libwebp
+a4d7a715337ded4451fec90ff8ce79728e04126c
+
+Entering 'modules/openh264'
+https://github.com/wide-video/openh264
+652bdb7719f30b52b08e506645a7322ff1b2cc6f
+
+Entering 'modules/opus'
+https://github.com/wide-video/opus
+ddbe48383984d56acd9e1ab6a090c54ca6b735a6
+
+Entering 'modules/rubberband'
+https://github.com/wide-video/rubberband
+7b780371ee6cc2c6466cb6b7ecc25bfea50311a3
+
+Entering 'modules/svtav1'
+https://github.com/wide-video/svtav1
+d653d6c193d73c847d52ad48e3436719b77c5aaa
+
+Entering 'modules/theora'
+https://github.com/wide-video/theora
+7180717276af1ebc7da15c83162d6c5d6203aabf
+
+Entering 'modules/vorbis'
+https://github.com/wide-video/vorbis
+fb1ff6fcaa7ec3d7b128142996efbdd064cf8850
+
+Entering 'modules/x264'
+https://github.com/wide-video/x264
+64f6a907b60fed93b49285a6cd19a90d1f0d009c
+
+Entering 'modules/x265'
+https://github.com/wide-video/x265
+419182243fb2e2dfbe91dfc45a51778cf704f849
+
+Entering 'modules/zlib'
+https://github.com/wide-video/zlib
+51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf
+
