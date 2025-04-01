@@ -37,6 +37,11 @@ ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "
 
 ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "fps=30,scale=960x540" -t 10 -c:v libvpx-vp9 -crf 30 -pix_fmt yuv420p10le -c:a libopus -ac 2 bbb_vp9_960x540_30fps_opus_stereo_10s_1MB.webm -y
 
+ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "fps=30,scale=100x100" -t 30 -c:v libx264 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v veryslow -c:a aac -ac 2 -f mp4 -movflags +faststart -y bbb_h264_100x100_30fps_aac_stereo_30s_0MB.mp4
+
+ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "fps=30,scale=200x100" -t 30 -c:v libx264 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v veryslow -c:a aac -ac 2 -f mp4 -movflags +faststart -y bbb_h264_200x100_30fps_aac_stereo_30s_0MB.mp4
+
+
 REM do not modify, used for performance test!
 ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -t 30 -c:v libx264 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v medium -c:a aac -ac 2 -f mp4 -movflags +faststart -y bbb_h264_1920x1080_60fps_aac_stereo_30s_11MB.mp4
 
