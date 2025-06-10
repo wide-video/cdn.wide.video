@@ -208,6 +208,8 @@ REM counter_h265_648x648_30fps_aac_mono_86s_2MB.mp4 downloaded from https://gith
 
 REM fasterwhisper_mp3_stereo_55s_0MB.mp3 download from https://github.com/SYSTRAN/faster-whisper/issues/81#issuecomment-1484051516 reported https://trac.ffmpeg.org/ticket/11429
 
+ffmpeg -i fasterwhisper_mp3_stereo_55s_0MB.mp3 -i logo_png_510x93_alpha_0MB.png -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" fasterwhisper_mp3_stereo_55s_withLogo_0MB.mp3
+
 REM pixelkid1_mjpeg_1920x1080_30fps_pcm_mono_10s_9MB.avi created using LAMAX PixelKid1
 
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=sw_FDQ5VsA8 to shaky_driving_h264_1920x1080_60fps_40s_29MB.mp4
