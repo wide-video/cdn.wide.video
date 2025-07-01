@@ -1,0 +1,17 @@
+WEBVTT
+
+NOTE
+Example of CSS direction
+
+STYLE
+::cue {
+  direction: rtl;
+}
+::cue(c.ltr) {
+  color: blue; 
+  direction: ltr;
+}
+
+00:00:00.000 --> 00:00:04.000
+- בוקר טוב.
+- <c.ltr>בוקר טוב.</c>
