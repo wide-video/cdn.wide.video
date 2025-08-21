@@ -24,6 +24,6 @@ RewriteRule \.onnx\.br$ - [E=no-gzip,E=no-brotli]
 </FilesMatch>
 
 #Generated extra
-<FilesMatch "(denoiser_model\.br)$">
+<FilesMatch "(denoiser_model.onnx\.br)$">
 	Header set x-content-length 16104687
 </FilesMatch>
