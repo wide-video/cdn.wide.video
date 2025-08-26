@@ -1,0 +1,88 @@
+emcc -O3 -flto -I/ffmpeg-wasm/build/include -pthread -msimd128 -mavx2 -L/ffmpeg-wasm/build/lib -I. -I./fftools -I./compat/stdbit -I/ffmpeg-wasm/build/include -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibswscale -Llibswresample -Wno-deprecated-declarations -Wno-pointer-sign -Wno-implicit-int-float-conversion -Wno-switch -Wno-parentheses -Qunused-arguments -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -laom -lSvtAv1Enc -LSvtAv1Enc -Llibstvav1 -lopenh264 -lkvazaar -lvpx -lmp3lame -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -lopus -lwebp -lwebpmux -lsharpyuv -lrubberband -lsamplerate -Lrubberband -Lsamplerate fftools/cmdutils.c fftools/ffmpeg.c fftools/ffmpeg_dec.c fftools/ffmpeg_demux.c fftools/ffmpeg_enc.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/ffmpeg_mux.c fftools/ffmpeg_mux_init.c fftools/ffmpeg_opt.c fftools/ffmpeg_sched.c fftools/graph/graphprint.c fftools/opt_common.c fftools/resources/graph.css.c fftools/resources/graph.html.c fftools/resources/resman.c fftools/sync_queue.c fftools/textformat/avtextformat.c fftools/textformat/tf_compact.c fftools/textformat/tf_default.c fftools/textformat/tf_flat.c fftools/textformat/tf_ini.c fftools/textformat/tf_json.c fftools/textformat/tf_mermaid.c fftools/textformat/tf_xml.c fftools/textformat/tw_avio.c fftools/textformat/tw_buffer.c fftools/textformat/tw_stdout.c fftools/thread_queue.c -lworkerfs.js -s USE_SDL=2 -s WASM_BIGINT -s MALLOC=mimalloc -s INVOKE_RUN=0 -s EXIT_RUNTIME=1 -s MODULARIZE=1 -s EXPORT_NAME=createFFmpeg -s EXPORTED_FUNCTIONS=[_main, ___wasm_init_memory_flag] -s EXPORTED_RUNTIME_METHODS=[callMain, FS, HEAPU32, WORKERFS] -s INITIAL_MEMORY=96mb -s ALLOW_MEMORY_GROWTH=1 -s MAXIMUM_MEMORY=4gb -s ENVIRONMENT=worker -s PROXY_TO_PTHREAD=1 -s STACK_SIZE=5MB -s DEFAULT_PTHREAD_STACK_SIZE=2MB -o /ffmpeg-wasm/wasm/ffmpeg-lgpl.js
+
+git@github.com:wide-video/ffmpeg-wasm.git
+04729e9c53209975471126baaebd18d9d804bc7c
+
+EMCC (emcc -v)
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 4.0.13 (2659582941bef14008476903f48941909db1b196)
+clang version 22.0.0git (https:/github.com/llvm/llvm-project 177f27d22092cb64e871e6cd2f8981d24e823186)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /ffmpeg-wasm/modules/emsdk/upstream/bin
+
+Entering 'modules/Ogg'
+https://github.com/wide-video/Ogg
+be05b13e98b048f0b5a0f5fa8ce514d56db5f822
+
+Entering 'modules/aom'
+https://github.com/wide-video/aom
+10aece4157eb79315da205f39e19bf6ab3ee30d0
+
+Entering 'modules/emsdk'
+https://github.com/emscripten-core/emsdk
+833fa33421e0a1873c43328bb937dbed53597b17
+
+Entering 'modules/ffmpeg'
+https://github.com/wide-video/ffmpeg
+6c07a4f5588d94f801bf35515626c28d101d2172
+
+Entering 'modules/kvazaar'
+https://github.com/wide-video/kvazaar
+f49af6386c9c7cddaa9d00e85cfe30cfe1d6a60f
+
+Entering 'modules/lame'
+https://github.com/wide-video/lame
+2badea1974ae36cb8312afe99cff1e6b3b5decee
+
+Entering 'modules/libsamplerate'
+https://github.com/wide-video/libsamplerate
+c96f5e3de9c4488f4e6c97f59f5245f22fda22f7
+
+Entering 'modules/libsndfile'
+https://github.com/wide-video/libsndfile
+72f6af15e8f85157bd622ed45b979025828b7001
+
+Entering 'modules/libvpx'
+https://github.com/wide-video/libvpx
+d168454ecd099805c675d4a98c66f4891373302a
+
+Entering 'modules/libwebp'
+https://github.com/wide-video/libwebp
+4fa21912338357f89e4fd51cf2368325b59e9bd9
+
+Entering 'modules/openh264'
+https://github.com/wide-video/openh264
+652bdb7719f30b52b08e506645a7322ff1b2cc6f
+
+Entering 'modules/opus'
+https://github.com/wide-video/opus
+ddbe48383984d56acd9e1ab6a090c54ca6b735a6
+
+Entering 'modules/rubberband'
+https://github.com/wide-video/rubberband
+7b780371ee6cc2c6466cb6b7ecc25bfea50311a3
+
+Entering 'modules/svtav1'
+https://github.com/wide-video/svtav1
+b33dcc56cc64fcb3b3569094af8ab1d0d81ab4c1
+
+Entering 'modules/theora'
+https://github.com/wide-video/theora
+8e4808736e9c181b971306cc3f05df9e61354004
+
+Entering 'modules/vorbis'
+https://github.com/wide-video/vorbis
+fb1ff6fcaa7ec3d7b128142996efbdd064cf8850
+
+Entering 'modules/x264'
+https://github.com/wide-video/x264
+64f6a907b60fed93b49285a6cd19a90d1f0d009c
+
+Entering 'modules/x265'
+https://github.com/wide-video/x265
+419182243fb2e2dfbe91dfc45a51778cf704f849
+
+Entering 'modules/zlib'
+https://github.com/wide-video/zlib
+51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf
+
