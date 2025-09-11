@@ -218,3 +218,5 @@ REM downloaded via cobalt.tools https://www.youtube.com/watch?v=sw_FDQ5VsA8 to s
 ffmpeg -i shaky_driving_h264_1920x1080_60fps_40s_29MB.mp4 -c copy shaky_driving_h264_1920x1080_60fps_40s_29MB.mkv
 
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=a_cFHDpAAis to shaky_raven_h264_1920x1080_30fps_31s_14MB.mp4
+
+REM zzile_h264_1080x1920_25fps_aac_stereo_4s_8MB.mp4 via reddit user zzile (2025-09-07 via reddit chats) created by Vivo v30 Lite phone
