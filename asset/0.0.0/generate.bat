@@ -220,3 +220,6 @@ ffmpeg -i shaky_driving_h264_1920x1080_60fps_40s_29MB.mp4 -c copy shaky_driving_
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=a_cFHDpAAis to shaky_raven_h264_1920x1080_30fps_31s_14MB.mp4
 
 REM zzile_h264_1080x1920_25fps_aac_stereo_4s_8MB.mp4 via reddit user zzile (2025-09-07 via reddit chats) created by Vivo v30 Lite phone
+
+REM yt-dlp "https://www.youtube.com/watch?v=hEyWqVfY4vo -o mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4"
+ffmpeg -i mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4 -filter:v "fps=10,crop=1356:1017:261:24,scale=360:270" -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -row-mt 1 -c:a copy mm_vp9_360x270_10fps_aac_stereo_98s_4MB.mp4
