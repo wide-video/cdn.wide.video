@@ -219,6 +219,11 @@ ffmpeg -i shaky_driving_h264_1920x1080_60fps_40s_29MB.mp4 -c copy shaky_driving_
 
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=a_cFHDpAAis to shaky_raven_h264_1920x1080_30fps_31s_14MB.mp4
 
+REM FFMPEG ISSUE-20827 https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/20827
+REM source https://www.reddit.com/r/widevideo/comments/1ok3ify/comment/nm8kjv5/
+REM ffmpeg -i 26CC50058EFFBE1.mp4 -r 25 -c:v libx264 -preset:v veryslow -vf scale=640:-2 -c:a copy -f mp4 -y ffmpeg_issue20827_x264_640x360_25fps_aac_stereo_23s_6MB.mp4
+REM ffmpeg -i 26CC50058EFFBE1.mp4 -c:a copy -vn ffmpeg_issue20827_aac_stereo_23s_0MB.mp4
+
 REM zzile_h264_1080x1920_25fps_aac_stereo_4s_8MB.mp4 via reddit user zzile (2025-09-07 via reddit chats) created by Vivo v30 Lite phone
 
 REM yt-dlp "https://www.youtube.com/watch?v=hEyWqVfY4vo -o mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4"
