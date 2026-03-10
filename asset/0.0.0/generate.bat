@@ -195,6 +195,7 @@ ffmpeg -c:v libvpx-vp9 -i premultiplyTest_vp9_256x256_1fps_1s_0MB.webm -vframes 
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -vcodec hevc_videotoolbox -r 1 -t 1 -vtag hvc1 -alpha_quality 1 -y premultiplyTest_h265_256x256_1fps_1s_0MB.mp4
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -filter_complex "[0]split[v][v1];[v1]alphaextract[v1]" -map "[v]" -map "[v1]" -vcodec libaom-av1 -r 1 -t 1 -y premultiplyTest_av1_256x256_1fps_1s_0MB.avif
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -r 1 -t 1 -y premultiplyTest_webp_256x256_1fps_1s_0MB.webp
+ffmpeg -i premultiplyTest_png_256x256_0MB.png -y premultiplyTest_jpegxl_256x256_0MB.jxl
 
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=NbMMIQgEjDM to metallica_opus_stereo_349s_4MB.opus
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=zA1zCZI_wxk to metallica_opus_stereo_382s_6MB.opus
@@ -230,3 +231,7 @@ REM yt-dlp "https://www.youtube.com/watch?v=hEyWqVfY4vo -o mm_vp9_1920x1080_29.9
 ffmpeg -i mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4 -filter:v "fps=10,crop=1356:1017:261:24,scale=360:270" -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -row-mt 1 -c:a copy mm_vp9_360x270_10fps_aac_stereo_98s_4MB.mp4
 
 REM roboto-v50-latin-700.woff2 downloaded from https://gwfh.mranftl.com/fonts
+
+REM notebook_jpegxl_896x448_0MB.jxl downloaded from https://jpegxl.info/
+
+REM ffmpeg_issue10167_jxl_throbber-small_16x16_10fps_1s_0MB.jxl downloaded from https://trac.ffmpeg.org/ticket/10167
