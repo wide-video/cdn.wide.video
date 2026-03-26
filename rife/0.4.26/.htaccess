@@ -27,3 +27,6 @@ RewriteRule \.onnx\.br$ - [E=no-gzip,E=no-brotli]
 <FilesMatch "(rife.onnx\.br)$">
 	Header set x-content-length 22748049
 </FilesMatch>
+<FilesMatch "(rife_heavy.onnx\.br)$">
+	Header set x-content-length 22981573
+</FilesMatch>

@@ -235,3 +235,7 @@ REM roboto-v50-latin-700.woff2 downloaded from https://gwfh.mranftl.com/fonts
 REM notebook_jpegxl_896x448_0MB.jxl downloaded from https://jpegxl.info/
 
 REM ffmpeg_issue10167_jxl_throbber-small_16x16_10fps_1s_0MB.jxl downloaded from https://trac.ffmpeg.org/ticket/10167
+
+REM musicgen_80s1_wav_mono_3s_0MB.wav - generated in studio 1.7.1 using musicgen
+REM musicgen_creator1_wav_mono_30s_3MB.wav - generated in studio 1.7.1 using musicgen
+REM musicgen_creator2_wav_mono_30s_3MB.wav - generated in studio 1.7.1 using musicgen
