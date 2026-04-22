@@ -239,3 +239,6 @@ REM ffmpeg_issue10167_jxl_throbber-small_16x16_10fps_1s_0MB.jxl downloaded from 
 REM musicgen_80s1_wav_mono_3s_0MB.wav - generated in studio 1.7.1 using musicgen
 REM musicgen_creator1_wav_mono_30s_3MB.wav - generated in studio 1.7.1 using musicgen
 REM musicgen_creator2_wav_mono_30s_3MB.wav - generated in studio 1.7.1 using musicgen
+
+REM ffmpeg -i pexels-35186759.mp4 -c:v libx265 -preset veryslow -crf 28 pexels-35186759-traffic_1280x720_60fpx_32s_3MB.mp4
+REM ffmpeg -i pexels-35186759-traffic_1280x720_60fpx_32s_3MB.mp4 -t 5 -vf "crop=250:300:500:420" -c:v libvpx-vp9 -b:v 0 -crf 40 -row-mt 1 -tile-columns 2 -frame-parallel 1 -auto-alt-ref 1 -cpu-used 0 pexels-35186759-traffic_250x300_60fpx_5s_0MB.mp4
