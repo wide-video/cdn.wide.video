@@ -228,7 +228,7 @@ REM ffmpeg -i 26CC50058EFFBE1.mp4 -c:a copy -vn ffmpeg_issue20827_aac_stereo_23s
 REM zzile_h264_1080x1920_25fps_aac_stereo_4s_8MB.mp4 via reddit user zzile (2025-09-07 via reddit chats) created by Vivo v30 Lite phone
 
 REM yt-dlp "https://www.youtube.com/watch?v=hEyWqVfY4vo -o mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4"
-ffmpeg -i mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4 -filter:v "fps=10,crop=1356:1017:261:24,scale=360:270" -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -row-mt 1 -c:a copy mm_vp9_360x270_10fps_aac_stereo_98s_4MB.mp4
+REM ffmpeg -i mm_vp9_1920x1080_29.97fps_aac_stereo_98s_15MB.mp4 -filter:v "fps=10,crop=1356:1017:261:24,scale=360:270" -c:v libvpx-vp9 -b:v 0 -crf 30 -deadline best -row-mt 1 -c:a copy mm_vp9_360x270_10fps_aac_stereo_98s_4MB.mp4
 
 REM roboto-v50-latin-700.woff2 downloaded from https://gwfh.mranftl.com/fonts
 
@@ -240,5 +240,14 @@ REM musicgen_80s1_wav_mono_3s_0MB.wav - generated in studio 1.7.1 using musicgen
 REM musicgen_creator1_wav_mono_30s_3MB.wav - generated in studio 1.7.1 using musicgen
 REM musicgen_creator2_wav_mono_30s_3MB.wav - generated in studio 1.7.1 using musicgen
 
-REM ffmpeg -i pexels-35186759.mp4 -c:v libx265 -preset veryslow -crf 28 pexels-35186759-traffic_1280x720_60fpx_32s_3MB.mp4
-REM ffmpeg -i pexels-35186759-traffic_1280x720_60fpx_32s_3MB.mp4 -t 5 -vf "crop=250:300:500:420" -c:v libvpx-vp9 -b:v 0 -crf 40 -row-mt 1 -tile-columns 2 -frame-parallel 1 -auto-alt-ref 1 -cpu-used 0 pexels-35186759-traffic_250x300_60fpx_5s_0MB.mp4
+REM ffmpeg -i pexels-35186759.mp4 -c:v libx265 -preset veryslow -crf 28 pexels-35186759-traffic_1280x720_60fps_32s_3MB.mp4
+REM ffmpeg -i pexels-35186759-traffic_1280x720_60fps_32s_3MB.mp4 -t 5 -vf "crop=250:300:500:420" -c:v libvpx-vp9 -b:v 0 -crf 40 -row-mt 1 -tile-columns 2 -frame-parallel 1 -auto-alt-ref 1 -cpu-used 0 pexels-35186759-traffic_250x300_60fpx_5s_0MB.mp4
+
+REM alig_trump_vp9_640x480_25fps_aac_stereo_103s_5MB.mp4 downloaded from https://www.youtube.com/watch?v=sP5ElraFHHE
+
+REM ffmpeg -i LICENSEPLATE.MP4 -c:v libx265 -crf 36 -preset slow -x265-params sao=0:strong-intra-smoothing=0 -c:a copy licenseplates_h265_3840x2160_60fps_11MB.mp4 from https://www.reddit.com/chat/room/!n5pEL6NcQ7A_icc6ZKhPbYAir_JtEzzIn_-GEbFiYb4%3Areddit.com
+
+REM ffmpeg -to 22 -i gDg7rMJ9Odg.mp4 -vn -c:a copy deutsch_gDg7rMJ9Odg_aac_stereo_22s_0MB.m4a from https://www.youtube.com/watch?v=gDg7rMJ9Odg
+
+REM https://m.actve.net/evropa2/2011_import/edee/tym-a-porady/mp3-archiv/15919/gott-pa-02-telefon-lucka-vola-masaze.mp3 
+REM ffmpeg -i gott-pa-02-telefon-lucka-vola-masaze.mp3 -vn -c:a libopus -b:a 128k evropa2_masaz_opus_stereo_286s_4MB.opus
