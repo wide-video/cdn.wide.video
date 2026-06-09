@@ -193,9 +193,11 @@ ffmpeg -i premultiplyTest_png_256x256_0MB.png -f mp4 -vcodec libvpx-vp9 -auto-al
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -f matroska -vcodec libvpx-vp9 -auto-alt-ref 0 -r 1 -t 1 -y premultiplyTest_vp9_256x256_1fps_1s_0MB.mkv
 ffmpeg -c:v libvpx-vp9 -i premultiplyTest_vp9_256x256_1fps_1s_0MB.webm -vframes 1 -f rawvideo -vcodec rawvideo -pix_fmt rgba premultiplyTest_rgba_256x256_0MB.rgba -y
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -vcodec hevc_videotoolbox -r 1 -t 1 -vtag hvc1 -alpha_quality 1 -y premultiplyTest_h265_256x256_1fps_1s_0MB.mp4
+ffmpeg -i premultiplyTest_png_256x256_0MB.png -vcodec hevc_videotoolbox -r 1 -t 1 -vtag hvc1 -alpha_quality 1 -y premultiplyTest_h265_256x256_1fps_1s_0MB_2.mp4 REM using ffmpeg 8.1 + macOS 26.5
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -filter_complex "[0]split[v][v1];[v1]alphaextract[v1]" -map "[v]" -map "[v1]" -vcodec libaom-av1 -r 1 -t 1 -y premultiplyTest_av1_256x256_1fps_1s_0MB.avif
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -r 1 -t 1 -y premultiplyTest_webp_256x256_1fps_1s_0MB.webp
 ffmpeg -i premultiplyTest_png_256x256_0MB.png -y premultiplyTest_jpegxl_256x256_0MB.jxl
+REM premultiplyTest_png_256x256_0MB.png on mac Finder -> Quick Actions -> Convert Image -> premultiplyTest_hevc_256x256_0MB.heic
 
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=NbMMIQgEjDM to metallica_opus_stereo_349s_4MB.opus
 REM downloaded via cobalt.tools https://www.youtube.com/watch?v=zA1zCZI_wxk to metallica_opus_stereo_382s_6MB.opus
@@ -251,3 +253,7 @@ REM ffmpeg -to 22 -i gDg7rMJ9Odg.mp4 -vn -c:a copy deutsch_gDg7rMJ9Odg_aac_stere
 
 REM https://m.actve.net/evropa2/2011_import/edee/tym-a-porady/mp3-archiv/15919/gott-pa-02-telefon-lucka-vola-masaze.mp3 
 REM ffmpeg -i gott-pa-02-telefon-lucka-vola-masaze.mp3 -vn -c:a libopus -b:a 128k evropa2_masaz_opus_stereo_286s_4MB.opus
+
+REM https://heic.digital/download-sample/chef-with-trumpet.heic to chef_hevc_4032x3024_1MB.heic
+
+REM https://nokiatech.github.io/heif/content/image_sequences/sea1_animation.heic to sea_hevc_256x144_25fps_4s_0MB.heic
