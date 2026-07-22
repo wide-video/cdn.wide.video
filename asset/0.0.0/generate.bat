@@ -80,6 +80,14 @@ ffmpeg -ss 45 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "
 
 ffmpeg -loop 1 -i bbb_jpeg_1280x720_0MB.jpeg -t 10 -r 25 -g 250 -c:v libx264 -x264-params keyint=250:scenecut=0 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v medium -f mp4 -movflags +faststart -an -y bbb_h264_1280x720_25fps_10s_static_0MB.mp4
 
+ffmpeg -ss 50 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "fps=25,scale=640x360" -t 8 -c:v libx264 -preset:v veryslow -c:a aac -output_ts_offset -2 -avoid_negative_ts 0 bbb_h264_640x360_25fps_8s_negative_offset_0MB.mp4 -y
+ffmpeg -ss 50 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -ss 49 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -map 0:v:0 -map 1:a:0 -vf "fps=25,scale=640x360" -af "asetpts=PTS-STARTPTS-1/TB" -t 8 -c:v libx264 -preset:v veryslow -c:a aac -output_ts_offset -2 -avoid_negative_ts 0 bbb_h264_640x360_25fps_8s_negative_offset2_0MB.mp4 -y
+ffmpeg -ss 50 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -ss 51 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -map 0:v:0 -map 1:a:0 -vf "fps=25,scale=640x360,setpts=PTS-STARTPTS" -af "asetpts=PTS-STARTPTS+1/TB" -t 8 -c:v libx264 -preset:v veryslow -c:a aac -output_ts_offset -3 -avoid_negative_ts 0 bbb_h264_640x360_25fps_8s_negative_offset3_0MB.mp4 -y
+
+ffmpeg -ss 50 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -vf "fps=25,scale=640x360" -t 8 -c:v libx264 -preset:v veryslow -c:a aac -output_ts_offset 2 -avoid_negative_ts 0 bbb_h264_640x360_25fps_8s_positive_offset_0MB.mp4 -y
+ffmpeg -ss 50 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -ss 49 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -map 0:v:0 -map 1:a:0 -vf "fps=25,scale=640x360" -af "asetpts=PTS-STARTPTS-1/TB" -t 8 -c:v libx264 -preset:v veryslow -c:a aac -output_ts_offset 2 -avoid_negative_ts 0 bbb_h264_640x360_25fps_8s_positive_offset2_0MB.mp4 -y
+ffmpeg -ss 50 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -ss 51 -i bbb_h264_1920x1080_60fps_mp3_stereo_ac3_51_634s_355MB.mp4 -map 0:v:0 -map 1:a:0 -vf "fps=25,scale=640x360,setpts=PTS-STARTPTS" -af "asetpts=PTS-STARTPTS+1/TB" -t 8 -c:v libx264 -preset:v veryslow -c:a aac -output_ts_offset 1 bbb_h264_640x360_25fps_8s_positive_offset3_0MB.mp4 -y
+
 curl http://ftp.nluug.nl/pub/graphics/blender/demo/movies/Sintel.2010.1080p.mkv --output sintel_h264_1920x818_24fps_ac3_51_888s_1172MB.mkv
 
 ffmpeg -ss 120 -i sintel_h264_1920x818_24fps_ac3_51_888s_1172MB.mkv -c:v libx264 -pix_fmt:v yuv420p -crf:v 23 -profile:v high -preset:v veryslow -c:a aac -ac 2 -f mp4 -movflags +faststart -t 30 -y sintel_h264_1920x818_24fps_aac_stereo_30s_6MB.mp4
