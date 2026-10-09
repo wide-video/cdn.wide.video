@@ -1,3 +1,7 @@
 Options -Indexes
 
 AddType image/avif .avif
+
+<FilesMatch "\.txt$">
+	AddDefaultCharset UTF-8
+</FilesMatch>
